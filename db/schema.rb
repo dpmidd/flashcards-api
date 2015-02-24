@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 20150224174149) do
 
   create_table "cards", force: :cascade do |t|
     t.string   "title"
-    t.text     "front"
     t.text     "back"
     t.datetime "created_at"
     t.datetime "updated_at"
