@@ -1,10 +1,12 @@
 class CardsController < ApplicationController
+  before_action :set_card, only: [:show, :update, :destroy]
 
   def index
     render json: Card.all
   end
 
   def show
+    render json: @card
   end
 
   def create
@@ -17,7 +19,17 @@ class CardsController < ApplicationController
     end
   end
 
+  def destroy
+    @card.destroy
+    head :no_content
+    render json: Card.all
+  end
+
   private
+
+  def set_card
+    @card = Card.find(params[:id])
+  end
 
   def card_params
     params.require(:card).permit(:title, :back)
