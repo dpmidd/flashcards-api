@@ -22,9 +22,10 @@ class CardsController < ApplicationController
   def update
     @card = Card.find(params[:id])
     if @card.update(card_params)
-      render json: Card.all
+      head :no_content
+      render json: Card.find(@card.id)
     else
-      render json: @card.errors, status: :unprocessable_entity
+      render json: Card.all
     end
   end
 
