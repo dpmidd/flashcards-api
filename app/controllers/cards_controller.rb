@@ -25,6 +25,7 @@ class CardsController < ApplicationController
       head :no_content
     else
       render json: @card.errors, status: :unprocessable_entity
+    end
   end
 
   def destroy
