@@ -19,6 +19,14 @@ class CardsController < ApplicationController
     end
   end
 
+  def update
+    @card = Card.find(params[:id])
+    if @card.update(card_params)
+      head :no_content
+    else
+      render json: @card.errors, status: :unprocessable_entity
+  end
+
   def destroy
     @card.destroy
     head :no_content
