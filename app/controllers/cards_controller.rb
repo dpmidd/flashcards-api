@@ -22,7 +22,6 @@ class CardsController < ApplicationController
   def update
     @card = Card.find(params[:id])
     if @card.update(card_params)
-      head :no_content
       render json: Card.find(@card.id)
     else
       render json: Card.all

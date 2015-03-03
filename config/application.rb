@@ -11,7 +11,7 @@ module FlashcardsApi
     config.middleware.insert_before 0, "Rack::Cors" do
       allow do
         origins '*'
-        resource '*', :headers => :any, :methods => [:get, :post, :options, :delete]
+        resource '*', :headers => :any, :methods => [:get, :put, :post, :options, :delete]
       end
     end
     config.active_record.raise_in_transactional_callbacks = true
